@@ -840,6 +840,140 @@
       color: var(--muted);
     }
 
+    /* ─── PROJECT FILTER BUTTONS (same look as theme-btn) ─── */
+    .proj-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-family: var(--mono-font);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .proj-btn:hover,
+    .proj-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,212,255,0.08);
+    }
+
+    /* ─── PROJECT CARD LINKS ─── */
+    .card-links {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono-font);
+      font-size: 12px;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      transition: all 0.2s;
+    }
+    .proj-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(0,212,255,0.08);
+    }
+
+    .veille-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .veille-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .veille-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .veille-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,212,255,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .veille-card:hover::before { transform: scaleX(1); }
+
+    .card-category {
+      font-family: var(--mono-font);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .cat-ia { background: rgba(124,58,237,0.15); color: #a78bfa; }
+    .cat-web { background: rgba(0,212,255,0.1); color: var(--accent); }
+    .cat-secu { background: rgba(239,68,68,0.1); color: #f87171; }
+    .cat-cloud { background: rgba(16,185,129,0.1); color: var(--accent3); }
+
+    .card-title {
+      font-family: var(--heading-font);
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .card-summary {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .card-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-date {
+      font-family: var(--mono-font);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .card-tags {
+      display: flex; gap: 6px;
+    }
+
+    .card-tag {
+      font-family: var(--mono-font);
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--surface2);
+      color: var(--muted);
+    }
+
     /* Tools section */
     .veille-tools {
       margin-top: 60px;
@@ -1200,6 +1334,7 @@
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house-fill"></i> Accueil</a></li>
         <li><a href="#about"><i class="bi bi-person-fill"></i> À propos</a></li>
+        <li><a href="#projects"><i class="bi bi-code-slash"></i> Projets &amp; TP</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text-fill"></i> CV</a></li>
         <li><a href="#veille"><i class="bi bi-rss-fill"></i> Veille Techno</a></li>
         <li><a href="#contact"><i class="bi bi-envelope-fill"></i> Contact</a></li>
@@ -1250,7 +1385,7 @@
           </div>
           <div class="stat-item">
             <div class="stat-number">BTS</div>
-            <div class="stat-label">SIO · 1ÈRE ANNÉE</div>
+            <div class="stat-label">SIO · 2ÈRE ANNÉE</div>
           </div>
           <div class="stat-item">
             
@@ -1309,10 +1444,13 @@
             <div class="skills-grid">
               <span class="skill-tag accent">HTML / CSS</span>
               <span class="skill-tag accent">JavaScript</span>
+              <span class="skill-tag accent">Kotlin</span>
               <span class="skill-tag purple">Python</span>
               <span class="skill-tag purple">SQL</span>
+              <span class="skill-tag purple">PHP</span>
               <span class="skill-tag green">Réseaux</span>
               <span class="skill-tag green">Linux</span>
+              <span class="skill-tag green">Support</span>
               <span class="skill-tag">PowerPoint</span>
               <span class="skill-tag">Excel</span>
               <span class="skill-tag">Word</span>
@@ -1322,9 +1460,186 @@
       </div>
     </section>
 
+<!-- ─── PROJETS & TP ─── -->
+    <section id="projects">
+      <div class="section-tag">// 02 · PROJETS &amp; TP</div>
+      <h2 class="section-title">Projets <span class="title-gradient">&amp; TP</span></h2>
+      <div class="section-divider"></div>
+
+      <p class="veille-intro">
+        Voici une sélection de projets et travaux pratiques réalisés durant mes deux années de BTS SIO : projets scolaires en groupe ou individuels, travaux pratiques techniques, et projets personnels développés en dehors des cours.
+      </p>
+
+      <!-- Filter -->
+      <div class="veille-theme-selector">
+        <button class="proj-btn active" data-proj-filter="all">Tout voir</button>
+        <button class="proj-btn" data-proj-filter="scolaire">Projets scolaires</button>
+        <button class="proj-btn" data-proj-filter="perso">Projets personnels</button>
+        <button class="proj-btn" data-proj-filter="tp">TP</button>
+      </div>
+
+      <!-- Projects Cards -->
+      <div class="veille-cards-grid" id="projectsGrid">
+
+        <div class="veille-card project-card" data-proj-category="scolaire" data-aos>
+          <span class="card-category cat-web">Projet scolaire</span>
+          <div class="card-title">Portfolio personnel</div>
+          <div class="card-summary">
+            Conception de ce portfolio pour présenter mon parcours, mes compétences et mes réalisations durant le BTS SIO.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">HTML</span>
+              <span class="card-tag">CSS</span>
+              <span class="card-tag">JS</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://nathanan07.github.io/" target="_blank" class="proj-link"><i class="bi bi-box-arrow-up-right"></i> Démo</a>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="scolaire" data-aos>
+          <span class="card-category cat-web">Projet scolaire</span>
+          <div class="card-title">Hôtel Chambord — Version HTML</div>
+          <div class="card-summary">
+            Développement en groupe d'un site vitrine pour un hôtel fictif, réalisé en HTML et déployé sur un serveur LAMP.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">HTML</span>
+              <span class="card-tag">LAMP</span>
+              <span class="card-tag">Groupe</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://nathanan07.github.io/hotel-chambord-nath.github.io/" target="_blank" class="proj-link"><i class="bi bi-box-arrow-up-right"></i> Démo</a>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="scolaire" data-aos>
+          <span class="card-category cat-web">Projet scolaire</span>
+          <div class="card-title">Hôtel Chambord — Version PHP</div>
+          <div class="card-summary">
+            Amélioration du site précédent avec PHP et SQL : gestion des salariés (ajout, modification, suppression) et fonctions facilitant l'utilisation et le repérage.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">PHP</span>
+              <span class="card-tag">SQL</span>
+              <span class="card-tag">Back-end</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/Nathanan07/chambord-salarie" target="_blank" class="proj-link"><i class="bi bi-github"></i> Code</a>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="scolaire" data-aos>
+          <span class="card-category cat-web">Projet scolaire</span>
+          <div class="card-title">Site cinéma — API Movie DB</div>
+          <div class="card-summary">
+            Développement d'un site en PHP exploitant une API de films et une base de données, permettant de rechercher des films, consulter les tendances et les mieux notés.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">PHP</span>
+              <span class="card-tag">API</span>
+              <span class="card-tag">BDD</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/Nathanan07/Projet_API_Movie_DB" target="_blank" class="proj-link"><i class="bi bi-github"></i> Code</a>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="perso" data-aos>
+          <span class="card-category cat-ia">Projet personnel</span>
+          <div class="card-title">Site de présentation — Brawlhalla</div>
+          <div class="card-summary">
+            Création d'un site de présentation autour du jeu vidéo Brawlhalla, réalisé en autonomie en dehors des cours.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">HTML</span>
+              <span class="card-tag">CSS</span>
+              <span class="card-tag">JS</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://nathanan07.github.io/projet.github.io/" target="_blank" class="proj-link"><i class="bi bi-box-arrow-up-right"></i> Démo</a>
+            <a href="https://github.com/Nathanan07/projet.github.io" target="_blank" class="proj-link"><i class="bi bi-github"></i> Code</a>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="perso" data-aos>
+          <span class="card-category cat-ia">Projet personnel</span>
+          <div class="card-title">Site de streaming</div>
+          <div class="card-summary">
+            Développement d'un site de streaming fonctionnel à l'aide de frameworks front-end, en dehors du cadre scolaire.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">Framework</span>
+              <span class="card-tag">Front-end</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="perso" data-aos>
+          <span class="card-category cat-ia">Projet personnel</span>
+          <div class="card-title">Jeu de dames</div>
+          <div class="card-summary">
+            Développement d'un jeu de dames jouable, avec la logique de déplacement et de capture des pions.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">Logique</span>
+              <span class="card-tag">JS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="tp" data-aos>
+          <span class="card-category cat-cloud">TP</span>
+          <div class="card-title">TP &amp; mini-projets — 1ère année</div>
+          <div class="card-summary">
+            Ensemble de tous les travaux pratiques et mini-projets réalisés durant la première année de BTS SIO.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">TP</span>
+              <span class="card-tag">1ère année</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/Nathanan07/Projet-TP" target="_blank" class="proj-link"><i class="bi bi-github"></i> Code</a>
+          </div>
+        </div>
+
+        <div class="veille-card project-card" data-proj-category="tp" data-aos>
+          <span class="card-category cat-cloud">TP</span>
+          <div class="card-title">Fiche technique — Langages informatiques</div>
+          <div class="card-summary">
+            Création d'un site de renseignement sur les différents types de langages informatiques, dans le cadre d'un TP fiche technique.
+          </div>
+          <div class="card-meta">
+            <div class="card-tags">
+              <span class="card-tag">HTML</span>
+              <span class="card-tag">Documentation</span>
+            </div>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/Nathanan07/TechniquesBTS" target="_blank" class="proj-link"><i class="bi bi-github"></i> Code</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ─── RESUME ─── -->
     <section id="resume">
-      <div class="section-tag">// 02 · CURRICULUM VITAE</div>
+      <div class="section-tag">// 03 · CURRICULUM VITAE</div>
       <h2 class="section-title">Mon <span class="title-gradient">parcours</span></h2>
       <div class="section-divider"></div>
 
@@ -1375,13 +1690,13 @@
           </div>
 
           <div class="resume-item">
-            <div class="resume-year">13/12 – 17/12/2021</div>
-            <h4>Stage d'observation — Plomberie</h4>
-            <div class="resume-location">CLIM PLOMBERIE CHAUFFAGE SERVICES, Grigny</div>
+            <div class="resume-year">18/05 – 26/06/2026</div>
+            <h4>Stage Claranet — Technicien système et réseaux en Data Center</h4>
+            <div class="resume-location">St Denis (93) et en Île-de-France</div>
             <ul>
               <li>Diagnostic et analyse de pannes</li>
               <li>Sens de l'organisation et planification</li>
-              <li>Collaboration et adaptabilité</li>
+              <li>Gestion des incidents</li>
             </ul>
           </div>
         </div>
@@ -1394,7 +1709,7 @@
 
     <!-- ─── VEILLE TECHNOLOGIQUE ─── -->
     <section id="veille">
-      <div class="section-tag">// 03 · VEILLE TECHNOLOGIQUE</div>
+      <div class="section-tag">// 04 · VEILLE TECHNOLOGIQUE</div>
       <h2 class="section-title">Veille <span class="title-gradient">techno</span></h2>
       <div class="section-divider"></div>
 
@@ -1633,7 +1948,7 @@
 
     <!-- ─── CONTACT ─── -->
     <section id="contact">
-      <div class="section-tag">// 04 · CONTACT</div>
+      <div class="section-tag">// 05 · CONTACT</div>
       <h2 class="section-title">Travaillons <span class="title-gradient">ensemble</span></h2>
       <div class="section-divider"></div>
 
@@ -1703,7 +2018,7 @@
   </main>
 
   <footer>
-    <p>© 2025 Nathanan Songcharoenkul · Conçu & développé avec ❤️</p>
+    <p>© 2025 Nathanan Songcharoenkul</p>
   </footer>
 
   <a href="#" id="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
@@ -1817,6 +2132,27 @@
         const filter = btn.dataset.filter;
         cards.forEach(card => {
           const show = filter === 'all' || card.dataset.category === filter;
+          card.style.display = show ? 'block' : 'none';
+          if (show) {
+            card.style.animation = 'none';
+            card.offsetHeight;
+            card.style.animation = 'fadeIn 0.4s ease forwards';
+          }
+        });
+      });
+    });
+
+    // ─── PROJECTS FILTER ───
+    const projButtons = document.querySelectorAll('.proj-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        projButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.projFilter;
+        projectCards.forEach(card => {
+          const show = filter === 'all' || card.dataset.projCategory === filter;
           card.style.display = show ? 'block' : 'none';
           if (show) {
             card.style.animation = 'none';
