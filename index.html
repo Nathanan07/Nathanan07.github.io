@@ -715,6 +715,34 @@
       color: #000;
     }
 
+    .resume-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.download-btn-outline {
+  display: flex; align-items: center; gap: 10px;
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: 32px;
+  transition: all 0.3s;
+}
+
+.download-btn-outline:hover {
+  transform: translateY(-2px);
+  background: rgba(0,212,255,0.1);
+  box-shadow: 0 12px 40px rgba(0,212,255,0.15);
+  color: var(--accent);
+}
+
     /* ─── VEILLE TECHNOLOGIQUE ─── */
     #veille { background: var(--bg); }
 
@@ -1702,9 +1730,15 @@
         </div>
       </div>
 
-      <a href="NATHANAN_SONGCHAROENKUL_CV.pdf" download class="download-btn">
-        <i class="bi bi-download"></i> Télécharger le CV complet
-      </a>
+      <div class="resume-downloads">
+  <a href="NATHANAN_SONGCHAROENKUL_CV.pdf" download class="download-btn">
+    <i class="bi bi-download"></i> Télécharger le CV complet
+  </a>
+  <a href="Rapport_Stage_Claranet.pdf" download class="download-btn-outline">
+    <i class="bi bi-file-earmark-pdf"></i> Rapport de stage — Claranet
+  </a>
+</div>
+
     </section>
 
     <!-- ─── VEILLE TECHNOLOGIQUE ─── -->
